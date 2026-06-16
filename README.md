@@ -1,4 +1,4 @@
-# World Happiness — Econometric Analysis
+# Econometric Analysis of World Happiness Determinants
 
 Cross-national regression analysis of the structural determinants of national happiness, using World Happiness Report data from 2020, 2023, and 2024.
 

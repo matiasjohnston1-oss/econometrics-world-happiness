@@ -1,0 +1,27 @@
+# Determinants of National Happiness — Managerial Report
+
+Our group was interested in understanding the factors that contribute to individual happiness in different nations. To do this, we examined the World Happiness Report data. This dataset contains 467 country-year observations from 2020, 2023, and 2024, covering more than 150 countries each year. The dependent variable is the national Happiness Score, measured on a scale from 0-10. Explanatory variables include GDP per capita, Social Support, Healthy Life Expectancy, Freedom to Make Life Choices, Generosity, and Perceptions of Corruption. Altogether, these variables encompass three broad dimensions of national well-being: economic prosperity, social infrastructure, and institutional quality. By applying multiple regression techniques learned throughout the course, we identify which variables have the strongest relationship with national happiness, if any.
+
+Summary statistics presented in Appendix Table A1 show that the average happiness score is 5.39. Finland, Denmark, and Norway are amongst the highest performers, scoring above 7.5 whereas the lowest scoring country is below 3.0. This substantial variation raises the question of what drives the gap between the highest ranking and the lowest, and what doesn't?
+
+## What Predicts National Happiness
+
+To estimate the determinants of happiness, we first constructed a multiple linear regression model using all six explanatory variables. The complete regression results are reported in Appendix Table A3. Because the dataset spans three separate World Happiness Reports, we next tested whether year-specific effects should be included by adding dummy variables for 2020 and 2023, using 2024 as the reference year. The results of this expanded model are shown in Appendix Table A4 and were compared to the baseline model using a partial F-test (Appendix Table A5) and model fit statistics (Appendix Table A6).
+
+The results indicate that national happiness is primarily driven by structural economic, social, and institutional conditions. The baseline model explains approximately 78 percent of the variation in happiness scores across countries (Adjusted R² = 0.780; Appendix Table A3). Additionally, Freedom to Make Life Choices is the strongest predictor of happiness, with a coefficient of 1.44. Social Support (1.12), Healthy Life Expectancy (1.03), GDP per capita (0.82), and Corruption (0.89) are also positive and statistically significant predictors. The confidence intervals reported in Appendix Table A7 remain above zero for each of these variables, supporting the existence of these relationships. These findings suggest that while economic prosperity matters, social support, personal freedom, health outcomes, and institutional trust may play an even larger role in determining national well-being.
+
+## What Doesn't Move the Needle
+
+However, not all variables are equally important. Generosity appears statistically significant in the original model (Appendix Table A3), but the Breusch-Pagan test reported in Appendix Table A8 indicates heteroskedasticity. Thus, the results in Appendix Table A9 show that Generosity is no longer statistically significant. This suggests that charitable behavior does not independently explain differences in national happiness once broader structural factors are controlled for.
+
+We also concluded that the year dummy variables fail to improve the model. As shown in Appendix Table A4, neither the 2020 nor 2023 indicator is statistically significant. The joint partial F-test reported in Appendix Table A5 fails to reject the null hypothesis that both coefficients are jointly equal to zero (p = 0.97). Additionally, adjusted R² falls slightly and AIC increases when year controls are added (Appendix Table A6). These results indicate that structural country characteristics better explain happiness than year-specific occurrences.
+
+Our team conducted multiple diagnostic tests to evaluate the validity of the regression assumptions. The residual-versus-fitted plot shown in Appendix Figure A1 and the Breusch-Pagan test reported in Appendix Table A8 both indicate heteroskedasticity. In response, we re-estimated the model using heteroskedasticity-robust standard errors. The robust results reported in Appendix Table A9 align with the original estimates. We also examined variance inflation factors, which are all below 5 (Appendix Table A8), indicating that multicollinearity is not severe enough to affect interpretation.
+
+## Managerial Implications
+
+Our findings from this data have important implications for policymakers and development organizations. While GDP remains an important contributor to happiness, the results suggest that investments in healthcare, social support systems, personal freedom, and institutional trust are likely to produce larger and more sustainable improvements in well-being. Although national happiness does depend on economic prosperity to a certain degree, it also relies heavily on the conditions that allow people to live healthy, autonomous, and socially supported lives.
+
+---
+
+*Group project for ECON 339 (Econometrics with R), Cal Poly San Luis Obispo. Co-authored with [Teammate 1] and [Teammate 2]. Appendix tables and Figure A1 referenced throughout are available in the accompanying PDF; the residual plot for Model 1 is also included in this repository as `figures/residual_plot.png`.*
